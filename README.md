@@ -98,4 +98,17 @@ make tb-test-latest # same with the release extracted in ./.cache (own profile)
 | `PLAN.md` | Design decisions, compatibility notes and the Phase 0 spike results |
 | `TESTING.md` | Manual release checklist |
 
+### Releasing
+
+Pushing a tag `v<version>` runs [`.github/workflows/release.yml`](.github/workflows/release.yml). It runs `make xpi` (lint, tests, build) in the same Docker toolchain as local development, then **drafts** a GitHub release containing the `.xpi`, `SHA256SUMS` and the starter snippets. The build is also kept as a workflow artifact.
+
+1. Set the same `version` in `src/manifest.json` and `package.json`, then commit. The workflow fails if the tag and these versions differ.
+2. Run [TESTING.md](TESTING.md).
+3. Tag and push:
+   ```bash
+   git tag -a v1.1.0 -m "Help Desk Helper 1.1.0"
+   git push --follow-tags
+   ```
+4. On GitHub → **Releases**, review the draft and click **Publish release**.
+
 Compatibility rules (enforced by tests): Manifest V3, `strict_min_version` 128.0 with no maximum, no Experiment APIs, and compose scripts registered with `scripting.compose` rather than the `compose_scripts` manifest key (that key only exists from TB 151).

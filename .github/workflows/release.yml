@@ -1,0 +1,72 @@
+# Build the add-on and draft a GitHub release whenever a version tag (v1.2.3) is pushed.
+#
+#   1. bump "version" in src/manifest.json and package.json, commit
+#   2. git tag -a v1.2.3 -m "…" && git push --follow-tags
+#   3. review the draft under Releases and click "Publish"
+#
+# Uses the same Docker toolchain as local development (`make xpi`), so CI and your
+# machine run identical lint, tests and packaging.
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write # create the draft release and upload assets
+
+concurrency:
+  group: release-${{ github.ref_name }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out
+        uses: actions/checkout@v4
+
+      - name: Tag must match the add-on version
+        run: |
+          tag="${GITHUB_REF_NAME#v}"
+          manifest=$(jq -r .version src/manifest.json)
+          package=$(jq -r .version package.json)
+          echo "tag=$tag manifest=$manifest package.json=$package"
+          if [ "$tag" != "$manifest" ] || [ "$tag" != "$package" ]; then
+            echo "::error::Tag $GITHUB_REF_NAME does not match src/manifest.json ($manifest) / package.json ($package). Bump both versions before tagging."
+            exit 1
+          fi
+
+      - name: Lint, test and build the XPI
+        run: make xpi
+
+      - name: Checksums
+        working-directory: dist
+        run: sha256sum -- *.xpi | tee SHA256SUMS
+
+      - name: Keep the build as a workflow artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: helpdesk-helper-${{ github.ref_name }}
+          path: |
+            dist/*.xpi
+            dist/SHA256SUMS
+          if-no-files-found: error
+
+      - name: Draft the GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ github.ref_name }}
+        run: |
+          assets=(dist/*.xpi dist/SHA256SUMS examples/starter-snippets.json)
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            # Re-run for an existing tag: refresh the files, leave the notes alone.
+            gh release upload "$TAG" "${assets[@]}" --clobber
+          else
+            gh release create "$TAG" "${assets[@]}" \
+              --draft \
+              --verify-tag \
+              --title "Help Desk Helper ${TAG#v}" \
+              --generate-notes
+          fi
