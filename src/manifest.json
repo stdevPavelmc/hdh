@@ -1,0 +1,40 @@
+{
+  "manifest_version": 3,
+  "name": "__MSG_extName__",
+  "description": "__MSG_extDescription__",
+  "version": "1.0.0",
+  "default_locale": "en",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "helpdesk-helper@chagod.local",
+      "strict_min_version": "128.0"
+    }
+  },
+  "icons": {
+    "16": "icons/icon.svg",
+    "32": "icons/icon.svg",
+    "64": "icons/icon.svg"
+  },
+  "background": {
+    "scripts": [
+      "background/background.js"
+    ],
+    "type": "module"
+  },
+  "action": {
+    "default_title": "__MSG_actionTitle__",
+    "default_label": "__MSG_actionLabel__",
+    "default_icon": "icons/icon.svg"
+  },
+  "options_ui": {
+    "page": "manager/manager.html",
+    "open_in_tab": true
+  },
+  "permissions": [
+    "compose",
+    "compose.save",
+    "messagesRead",
+    "scripting",
+    "storage"
+  ]
+}

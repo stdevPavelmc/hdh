@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Dev-only harness: renders src/manager in a normal browser with a fake `messenger` API.
+       Not part of the add-on. Usage: http://localhost:8765/dev/preview.html?lang=es -->
+  <base href="../src/manager/">
+  <link rel="stylesheet" href="manager.css">
+  <title>Manager preview</title>
+</head>
+<body>
+<script type="module">
+const lang = new URLSearchParams(location.search).get("lang") || "en";
+const msgs = await (await fetch(`../_locales/${lang}/messages.json`)).json();
+
+const seed = {
+  schemaVersion: 1,
+  settings: { trigger: "/", minChars: 3 },
+  snippets: [
+    { id: "1", name: "greet-en", tags: ["greet", "greeting", "english"], html: "Hello,<br><br>Thank you for contacting <b>support</b>.", createdAt: "", updatedAt: "" },
+    { id: "2", name: "greet-es", tags: ["greet", "spanish", "español"], html: "Hola,<br><br>Gracias por contactar con <b>soporte</b>.", createdAt: "", updatedAt: "" },
+    { id: "3", name: "info-product", tags: ["info", "product"], html: "<p>Here is the product information:</p><ul><li>Item <i>one</i></li><li>Item two</li></ul><p>More at <a href=\"https://example.com\">example.com</a>.</p>", createdAt: "", updatedAt: "" },
+  ],
+};
+let data = structuredClone(seed);
+const listeners = [];
+
+window.messenger = {
+  i18n: {
+    getUILanguage: () => lang,
+    getMessage(key, subs = []) {
+      const m = msgs[key];
+      if (!m) return "";
+      let s = m.message;
+      for (const [name, ph] of Object.entries(m.placeholders || {})) {
+        const n = Number(ph.content.slice(1));
+        s = s.replaceAll(`$${name.toUpperCase()}$`, subs[n - 1] ?? "");
+      }
+      return s;
+    },
+  },
+  storage: {
+    local: {
+      async get(keys) {
+        return Object.fromEntries([].concat(keys).filter((k) => k in data).map((k) => [k, structuredClone(data[k])]));
+      },
+      async set(obj) {
+        data = { ...data, ...structuredClone(obj) };
+        const changes = Object.fromEntries(Object.keys(obj).map((k) => [k, { newValue: obj[k] }]));
+        setTimeout(() => listeners.forEach((l) => l(changes, "local")));
+      },
+    },
+    onChanged: { addListener: (fn) => listeners.push(fn) },
+  },
+};
+
+const page = new DOMParser().parseFromString(await (await fetch("manager.html")).text(), "text/html");
+document.title = page.title;
+document.body.replaceChildren(...[...page.body.childNodes].filter((n) => n.nodeName !== "SCRIPT"));
+await import("./manager.js");
+</script>
+</body>
+</html>

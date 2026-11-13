@@ -1,0 +1,6 @@
+dist/
+.tbprofile/
+.tbprofile-latest/
+.cache/
+node_modules/
+.claude/

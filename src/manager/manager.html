@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-i18n="managerTitle">Help Desk Helper</title>
+  <link rel="icon" href="../icons/icon.svg">
+  <link rel="stylesheet" href="manager.css">
+</head>
+<body>
+  <header class="topbar">
+    <img src="../icons/icon.svg" alt="" width="28" height="28">
+    <h1 data-i18n="managerTitle">Help Desk Helper</h1>
+    <p id="status" class="status" role="status" aria-live="polite"></p>
+    <nav class="topbar-actions">
+      <button id="btn-new" class="primary" type="button" data-i18n="btnNew">New snippet</button>
+      <button id="btn-import" type="button" data-i18n="btnImport">Import…</button>
+      <button id="btn-export" type="button" data-i18n="btnExport">Export</button>
+      <button id="btn-options" type="button" data-i18n="btnOptions">Options</button>
+    </nav>
+    <input id="file-import" type="file" accept=".json,application/json" hidden>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <input id="search" type="search" autocomplete="off" spellcheck="false"
+             data-i18n-attr="placeholder:searchPlaceholder,aria-label:searchPlaceholder">
+      <p id="count" class="muted"></p>
+      <ul id="list" class="snippet-list"></ul>
+      <p id="list-empty" class="muted" hidden></p>
+    </aside>
+
+    <main class="pane">
+      <section id="welcome" class="welcome">
+        <h2 data-i18n="welcomeTitle">Your text snippets</h2>
+        <p id="welcome-howto"></p>
+        <p class="muted" data-i18n="welcomeSelect"></p>
+      </section>
+
+      <form id="editor" class="editor" novalidate hidden>
+        <h2 id="editor-title"></h2>
+
+        <div class="field">
+          <label for="f-name" data-i18n="fieldName">Name</label>
+          <input id="f-name" autocomplete="off" spellcheck="false" maxlength="64" aria-describedby="hint-name err-name">
+          <p id="hint-name" class="hint" data-i18n="fieldNameHint"></p>
+          <p id="err-name" class="error" role="alert"></p>
+        </div>
+
+        <div class="field">
+          <label for="f-tags-input" data-i18n="fieldTags">Tags</label>
+          <div id="f-tags"></div>
+          <p class="hint" data-i18n="fieldTagsHint"></p>
+          <p id="err-tags" class="error" role="alert"></p>
+        </div>
+
+        <div class="field">
+          <span id="lbl-body" class="label" data-i18n="fieldBody">Text</span>
+          <div id="toolbar" class="toolbar" role="toolbar" aria-labelledby="lbl-body">
+            <button type="button" data-cmd="bold" data-i18n-attr="title:tbBold,aria-label:tbBold"><b>B</b></button>
+            <button type="button" data-cmd="italic" data-i18n-attr="title:tbItalic,aria-label:tbItalic"><i>I</i></button>
+            <button type="button" data-cmd="underline" data-i18n-attr="title:tbUnderline,aria-label:tbUnderline"><u>U</u></button>
+            <span class="sep"></span>
+            <button type="button" data-cmd="insertUnorderedList" data-i18n-attr="title:tbBullets,aria-label:tbBullets">•&#8202;≡</button>
+            <button type="button" data-cmd="insertOrderedList" data-i18n-attr="title:tbNumbers,aria-label:tbNumbers">1.&#8202;≡</button>
+            <span class="sep"></span>
+            <button type="button" data-cmd="createLink" data-i18n-attr="title:tbLink,aria-label:tbLink">🔗</button>
+            <button type="button" data-cmd="unlink" data-i18n-attr="title:tbUnlink,aria-label:tbUnlink"><s>🔗</s></button>
+            <span class="sep"></span>
+            <button type="button" data-cmd="removeFormat" data-i18n-attr="title:tbClear,aria-label:tbClear">T&#8202;✕</button>
+          </div>
+          <div id="f-body" class="rich" contenteditable="true" role="textbox" aria-multiline="true"
+               aria-labelledby="lbl-body" aria-describedby="err-html"></div>
+          <p id="err-html" class="error" role="alert"></p>
+          <details class="preview">
+            <summary data-i18n="plainPreview">Plain-text preview</summary>
+            <pre id="plain-text"></pre>
+          </details>
+        </div>
+
+        <div class="actions">
+          <button type="submit" class="primary" data-i18n="btnSave">Save</button>
+          <button type="button" id="btn-cancel" data-i18n="btnCancel">Cancel</button>
+          <span class="spacer"></span>
+          <button type="button" id="btn-delete" class="danger" data-i18n="btnDelete">Delete</button>
+        </div>
+      </form>
+    </main>
+  </div>
+
+  <dialog id="dlg"></dialog>
+  <script type="module" src="manager.js"></script>
+</body>
+</html>

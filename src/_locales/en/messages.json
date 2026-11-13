@@ -1,0 +1,343 @@
+{
+  "extName": {
+    "message": "Help Desk Helper"
+  },
+  "extDescription": {
+    "message": "Insert predefined text snippets while writing emails: type /tag and pick from the list."
+  },
+  "actionTitle": {
+    "message": "Manage text snippets"
+  },
+  "actionLabel": {
+    "message": "Snippets"
+  },
+  "managerTitle": {
+    "message": "Help Desk Helper – Snippets"
+  },
+  "errKeyRequired": {
+    "message": "This field is required."
+  },
+  "errKeyTooLong": {
+    "message": "Use at most 32 characters."
+  },
+  "errKeySpaces": {
+    "message": "Spaces are not allowed. Use \"-\" to join words (e.g. info-spanish)."
+  },
+  "errKeyUnderscore": {
+    "message": "\"_\" is not allowed. Use \"-\" to join words (e.g. info-spanish)."
+  },
+  "errKeyInvalid": {
+    "message": "Use only letters and numbers, with single \"-\" between words (e.g. info-spanish)."
+  },
+  "errNameDuplicate": {
+    "message": "A snippet with this name already exists."
+  },
+  "errTooManyTags": {
+    "message": "Use at most 20 tags."
+  },
+  "errBodyRequired": {
+    "message": "The snippet text cannot be empty."
+  },
+  "errBodyTooLarge": {
+    "message": "The snippet text is too long."
+  },
+  "errSnippetNotFound": {
+    "message": "This snippet no longer exists. It may have been deleted."
+  },
+  "errTriggerInvalid": {
+    "message": "The trigger must be 1 to 3 symbols, with no letters, numbers or spaces."
+  },
+  "errMinCharsRange": {
+    "message": "Choose a number from 1 to 5."
+  },
+  "errImportNotJson": {
+    "message": "The file is not valid JSON."
+  },
+  "errImportFormat": {
+    "message": "This file is not a Help Desk Helper snippet export."
+  },
+  "errImportVersion": {
+    "message": "This file was made by a newer version of Help Desk Helper. Update the add-on first."
+  },
+  "errImportMode": {
+    "message": "Unknown import mode."
+  },
+  "errImportDuplicateInFile": {
+    "message": "This name appears more than once in the file. Only the first one was imported."
+  },
+  "btnNew": {
+    "message": "New snippet"
+  },
+  "btnImport": {
+    "message": "Import…"
+  },
+  "btnExport": {
+    "message": "Export"
+  },
+  "btnOptions": {
+    "message": "Options"
+  },
+  "btnSave": {
+    "message": "Save"
+  },
+  "btnCancel": {
+    "message": "Cancel"
+  },
+  "btnDelete": {
+    "message": "Delete"
+  },
+  "btnClose": {
+    "message": "Close"
+  },
+  "btnOk": {
+    "message": "OK"
+  },
+  "btnDiscard": {
+    "message": "Discard changes"
+  },
+  "btnMerge": {
+    "message": "Merge"
+  },
+  "btnReplace": {
+    "message": "Replace all"
+  },
+  "searchPlaceholder": {
+    "message": "Search by tag or name"
+  },
+  "listCount": {
+    "message": "$COUNT$ snippets",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "listCountFiltered": {
+    "message": "$SHOWN$ of $TOTAL$ snippets",
+    "placeholders": {
+      "shown": {
+        "content": "$1"
+      },
+      "total": {
+        "content": "$2"
+      }
+    }
+  },
+  "listEmpty": {
+    "message": "No snippets yet. Click “New snippet” to create one, or import a file."
+  },
+  "listNoResults": {
+    "message": "No snippets match your search."
+  },
+  "welcomeTitle": {
+    "message": "Your text snippets"
+  },
+  "welcomeHowTo": {
+    "message": "While writing an email, type $TRIGGER$ followed by at least $MIN$ letters of a tag or name (for example $EXAMPLE$). Choose a snippet with ↑ and ↓, then press Enter, Tab or Space to insert it. Esc closes the list.",
+    "placeholders": {
+      "trigger": {
+        "content": "$1"
+      },
+      "min": {
+        "content": "$2"
+      },
+      "example": {
+        "content": "$3"
+      }
+    }
+  },
+  "welcomeSelect": {
+    "message": "Select a snippet on the left to edit it, or create a new one."
+  },
+  "editorNew": {
+    "message": "New snippet"
+  },
+  "editorEdit": {
+    "message": "Edit snippet"
+  },
+  "fieldName": {
+    "message": "Name"
+  },
+  "fieldNameHint": {
+    "message": "One word; use - to join words (e.g. info-spanish)."
+  },
+  "fieldTags": {
+    "message": "Tags"
+  },
+  "fieldTagsHint": {
+    "message": "Press Space, Enter or comma after each tag. Same rules as the name."
+  },
+  "tagsPlaceholder": {
+    "message": "Add a tag…"
+  },
+  "tagRemove": {
+    "message": "Remove tag $TAG$",
+    "placeholders": {
+      "tag": {
+        "content": "$1"
+      }
+    }
+  },
+  "fieldBody": {
+    "message": "Text"
+  },
+  "tbBold": {
+    "message": "Bold (Ctrl+B)"
+  },
+  "tbItalic": {
+    "message": "Italic (Ctrl+I)"
+  },
+  "tbUnderline": {
+    "message": "Underline (Ctrl+U)"
+  },
+  "tbBullets": {
+    "message": "Bulleted list"
+  },
+  "tbNumbers": {
+    "message": "Numbered list"
+  },
+  "tbLink": {
+    "message": "Insert link"
+  },
+  "tbUnlink": {
+    "message": "Remove link"
+  },
+  "tbClear": {
+    "message": "Clear formatting"
+  },
+  "plainPreview": {
+    "message": "Plain-text preview"
+  },
+  "statusSaved": {
+    "message": "Snippet saved."
+  },
+  "statusDeleted": {
+    "message": "Snippet deleted."
+  },
+  "statusExported": {
+    "message": "Exported $COUNT$ snippets to $FILE$.",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      },
+      "file": {
+        "content": "$2"
+      }
+    }
+  },
+  "statusOptionsSaved": {
+    "message": "Options saved."
+  },
+  "deleteTitle": {
+    "message": "Delete snippet?"
+  },
+  "deleteConfirm": {
+    "message": "“$NAME$” will be deleted. This can't be undone.",
+    "placeholders": {
+      "name": {
+        "content": "$1"
+      }
+    }
+  },
+  "unsavedTitle": {
+    "message": "Unsaved changes"
+  },
+  "unsavedConfirm": {
+    "message": "This snippet has changes that are not saved. Discard them?"
+  },
+  "linkTitle": {
+    "message": "Insert link"
+  },
+  "linkPrompt": {
+    "message": "Address (https://…, mailto:… or tel:…)"
+  },
+  "errLinkInvalid": {
+    "message": "Use an address that starts with https://, http://, mailto: or tel:."
+  },
+  "optionsTitle": {
+    "message": "Options"
+  },
+  "optTrigger": {
+    "message": "Trigger"
+  },
+  "optTriggerHint": {
+    "message": "Typed at the start of a word to open the snippet list. 1 to 3 symbols; the default is /."
+  },
+  "optMinChars": {
+    "message": "Letters before the list appears"
+  },
+  "optMinCharsHint": {
+    "message": "The default is 3."
+  },
+  "importTitle": {
+    "message": "Import snippets"
+  },
+  "importConfirm": {
+    "message": "“$FILE$” contains $COUNT$ snippets. How do you want to import them?",
+    "placeholders": {
+      "file": {
+        "content": "$1"
+      },
+      "count": {
+        "content": "$2"
+      }
+    }
+  },
+  "importMergeHelp": {
+    "message": "Merge: adds the new snippets. A local snippet with the same name is replaced by the imported one."
+  },
+  "importReplaceHelp": {
+    "message": "Replace all: deletes all current snippets first. A backup file is exported automatically before that."
+  },
+  "importDoneTitle": {
+    "message": "Import finished"
+  },
+  "importSummary": {
+    "message": "$ADDED$ added, $UPDATED$ updated, $SKIPPED$ skipped.",
+    "placeholders": {
+      "added": {
+        "content": "$1"
+      },
+      "updated": {
+        "content": "$2"
+      },
+      "skipped": {
+        "content": "$3"
+      }
+    }
+  },
+  "importSkippedItem": {
+    "message": "Entry $INDEX$ ($NAME$): $REASON$",
+    "placeholders": {
+      "index": {
+        "content": "$1"
+      },
+      "name": {
+        "content": "$2"
+      },
+      "reason": {
+        "content": "$3"
+      }
+    }
+  },
+  "importBackup": {
+    "message": "Backup of the previous snippets: $FILE$",
+    "placeholders": {
+      "file": {
+        "content": "$1"
+      }
+    }
+  },
+  "importFailedTitle": {
+    "message": "Import failed"
+  },
+  "noName": {
+    "message": "no name"
+  },
+  "popupNoMatch": {
+    "message": "No snippets match"
+  },
+  "popupHint": {
+    "message": "↑↓ choose · Enter, Tab or Space insert · Esc close"
+  }
+}

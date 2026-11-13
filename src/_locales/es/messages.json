@@ -1,0 +1,343 @@
+{
+  "extName": {
+    "message": "Help Desk Helper"
+  },
+  "extDescription": {
+    "message": "Inserta fragmentos de texto predefinidos al escribir correos: escribe /etiqueta y elige de la lista."
+  },
+  "actionTitle": {
+    "message": "Gestionar fragmentos de texto"
+  },
+  "actionLabel": {
+    "message": "Fragmentos"
+  },
+  "managerTitle": {
+    "message": "Help Desk Helper – Fragmentos"
+  },
+  "errKeyRequired": {
+    "message": "Este campo es obligatorio."
+  },
+  "errKeyTooLong": {
+    "message": "Usa como máximo 32 caracteres."
+  },
+  "errKeySpaces": {
+    "message": "No se permiten espacios. Usa \"-\" para unir palabras (p. ej. info-spanish)."
+  },
+  "errKeyUnderscore": {
+    "message": "No se permite \"_\". Usa \"-\" para unir palabras (p. ej. info-spanish)."
+  },
+  "errKeyInvalid": {
+    "message": "Usa solo letras y números, con un único \"-\" entre palabras (p. ej. info-spanish)."
+  },
+  "errNameDuplicate": {
+    "message": "Ya existe un fragmento con este nombre."
+  },
+  "errTooManyTags": {
+    "message": "Usa como máximo 20 etiquetas."
+  },
+  "errBodyRequired": {
+    "message": "El texto del fragmento no puede estar vacío."
+  },
+  "errBodyTooLarge": {
+    "message": "El texto del fragmento es demasiado largo."
+  },
+  "errSnippetNotFound": {
+    "message": "Este fragmento ya no existe. Puede que se haya eliminado."
+  },
+  "errTriggerInvalid": {
+    "message": "El activador debe tener de 1 a 3 símbolos, sin letras, números ni espacios."
+  },
+  "errMinCharsRange": {
+    "message": "Elige un número del 1 al 5."
+  },
+  "errImportNotJson": {
+    "message": "El archivo no es un JSON válido."
+  },
+  "errImportFormat": {
+    "message": "Este archivo no es una exportación de fragmentos de Help Desk Helper."
+  },
+  "errImportVersion": {
+    "message": "Este archivo se creó con una versión más reciente de Help Desk Helper. Actualiza primero el complemento."
+  },
+  "errImportMode": {
+    "message": "Modo de importación desconocido."
+  },
+  "errImportDuplicateInFile": {
+    "message": "Este nombre aparece más de una vez en el archivo. Solo se importó el primero."
+  },
+  "btnNew": {
+    "message": "Nuevo fragmento"
+  },
+  "btnImport": {
+    "message": "Importar…"
+  },
+  "btnExport": {
+    "message": "Exportar"
+  },
+  "btnOptions": {
+    "message": "Opciones"
+  },
+  "btnSave": {
+    "message": "Guardar"
+  },
+  "btnCancel": {
+    "message": "Cancelar"
+  },
+  "btnDelete": {
+    "message": "Eliminar"
+  },
+  "btnClose": {
+    "message": "Cerrar"
+  },
+  "btnOk": {
+    "message": "Aceptar"
+  },
+  "btnDiscard": {
+    "message": "Descartar cambios"
+  },
+  "btnMerge": {
+    "message": "Combinar"
+  },
+  "btnReplace": {
+    "message": "Reemplazar todo"
+  },
+  "searchPlaceholder": {
+    "message": "Buscar por etiqueta o nombre"
+  },
+  "listCount": {
+    "message": "$COUNT$ fragmentos",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "listCountFiltered": {
+    "message": "$SHOWN$ de $TOTAL$ fragmentos",
+    "placeholders": {
+      "shown": {
+        "content": "$1"
+      },
+      "total": {
+        "content": "$2"
+      }
+    }
+  },
+  "listEmpty": {
+    "message": "Aún no hay fragmentos. Pulsa «Nuevo fragmento» para crear uno o importa un archivo."
+  },
+  "listNoResults": {
+    "message": "Ningún fragmento coincide con la búsqueda."
+  },
+  "welcomeTitle": {
+    "message": "Tus fragmentos de texto"
+  },
+  "welcomeHowTo": {
+    "message": "Mientras escribes un correo, teclea $TRIGGER$ seguido de al menos $MIN$ letras de una etiqueta o nombre (por ejemplo $EXAMPLE$). Elige un fragmento con ↑ y ↓ y pulsa Intro, Tab o Espacio para insertarlo. Esc cierra la lista.",
+    "placeholders": {
+      "trigger": {
+        "content": "$1"
+      },
+      "min": {
+        "content": "$2"
+      },
+      "example": {
+        "content": "$3"
+      }
+    }
+  },
+  "welcomeSelect": {
+    "message": "Selecciona un fragmento a la izquierda para editarlo o crea uno nuevo."
+  },
+  "editorNew": {
+    "message": "Nuevo fragmento"
+  },
+  "editorEdit": {
+    "message": "Editar fragmento"
+  },
+  "fieldName": {
+    "message": "Nombre"
+  },
+  "fieldNameHint": {
+    "message": "Una sola palabra; usa - para unir palabras (p. ej. info-spanish)."
+  },
+  "fieldTags": {
+    "message": "Etiquetas"
+  },
+  "fieldTagsHint": {
+    "message": "Pulsa Espacio, Intro o coma después de cada etiqueta. Mismas reglas que el nombre."
+  },
+  "tagsPlaceholder": {
+    "message": "Añadir etiqueta…"
+  },
+  "tagRemove": {
+    "message": "Quitar la etiqueta $TAG$",
+    "placeholders": {
+      "tag": {
+        "content": "$1"
+      }
+    }
+  },
+  "fieldBody": {
+    "message": "Texto"
+  },
+  "tbBold": {
+    "message": "Negrita (Ctrl+B)"
+  },
+  "tbItalic": {
+    "message": "Cursiva (Ctrl+I)"
+  },
+  "tbUnderline": {
+    "message": "Subrayado (Ctrl+U)"
+  },
+  "tbBullets": {
+    "message": "Lista con viñetas"
+  },
+  "tbNumbers": {
+    "message": "Lista numerada"
+  },
+  "tbLink": {
+    "message": "Insertar enlace"
+  },
+  "tbUnlink": {
+    "message": "Quitar enlace"
+  },
+  "tbClear": {
+    "message": "Borrar formato"
+  },
+  "plainPreview": {
+    "message": "Vista previa en texto plano"
+  },
+  "statusSaved": {
+    "message": "Fragmento guardado."
+  },
+  "statusDeleted": {
+    "message": "Fragmento eliminado."
+  },
+  "statusExported": {
+    "message": "Se exportaron $COUNT$ fragmentos a $FILE$.",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      },
+      "file": {
+        "content": "$2"
+      }
+    }
+  },
+  "statusOptionsSaved": {
+    "message": "Opciones guardadas."
+  },
+  "deleteTitle": {
+    "message": "¿Eliminar el fragmento?"
+  },
+  "deleteConfirm": {
+    "message": "Se eliminará «$NAME$». No se puede deshacer.",
+    "placeholders": {
+      "name": {
+        "content": "$1"
+      }
+    }
+  },
+  "unsavedTitle": {
+    "message": "Cambios sin guardar"
+  },
+  "unsavedConfirm": {
+    "message": "Este fragmento tiene cambios sin guardar. ¿Descartarlos?"
+  },
+  "linkTitle": {
+    "message": "Insertar enlace"
+  },
+  "linkPrompt": {
+    "message": "Dirección (https://…, mailto:… o tel:…)"
+  },
+  "errLinkInvalid": {
+    "message": "Usa una dirección que empiece por https://, http://, mailto: o tel:."
+  },
+  "optionsTitle": {
+    "message": "Opciones"
+  },
+  "optTrigger": {
+    "message": "Activador"
+  },
+  "optTriggerHint": {
+    "message": "Se escribe al inicio de una palabra para abrir la lista. De 1 a 3 símbolos; por defecto /."
+  },
+  "optMinChars": {
+    "message": "Letras antes de mostrar la lista"
+  },
+  "optMinCharsHint": {
+    "message": "Por defecto, 3."
+  },
+  "importTitle": {
+    "message": "Importar fragmentos"
+  },
+  "importConfirm": {
+    "message": "«$FILE$» contiene $COUNT$ fragmentos. ¿Cómo quieres importarlos?",
+    "placeholders": {
+      "file": {
+        "content": "$1"
+      },
+      "count": {
+        "content": "$2"
+      }
+    }
+  },
+  "importMergeHelp": {
+    "message": "Combinar: añade los fragmentos nuevos. Un fragmento local con el mismo nombre se sustituye por el importado."
+  },
+  "importReplaceHelp": {
+    "message": "Reemplazar todo: elimina antes todos los fragmentos actuales. Antes se exporta automáticamente una copia de seguridad."
+  },
+  "importDoneTitle": {
+    "message": "Importación terminada"
+  },
+  "importSummary": {
+    "message": "$ADDED$ añadidos, $UPDATED$ actualizados, $SKIPPED$ omitidos.",
+    "placeholders": {
+      "added": {
+        "content": "$1"
+      },
+      "updated": {
+        "content": "$2"
+      },
+      "skipped": {
+        "content": "$3"
+      }
+    }
+  },
+  "importSkippedItem": {
+    "message": "Entrada $INDEX$ ($NAME$): $REASON$",
+    "placeholders": {
+      "index": {
+        "content": "$1"
+      },
+      "name": {
+        "content": "$2"
+      },
+      "reason": {
+        "content": "$3"
+      }
+    }
+  },
+  "importBackup": {
+    "message": "Copia de seguridad de los fragmentos anteriores: $FILE$",
+    "placeholders": {
+      "file": {
+        "content": "$1"
+      }
+    }
+  },
+  "importFailedTitle": {
+    "message": "Error al importar"
+  },
+  "noName": {
+    "message": "sin nombre"
+  },
+  "popupNoMatch": {
+    "message": "Ningún fragmento coincide con"
+  },
+  "popupHint": {
+    "message": "↑↓ elegir · Intro, Tab o Espacio insertar · Esc cerrar"
+  }
+}

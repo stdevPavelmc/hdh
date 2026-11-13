@@ -1,0 +1,21 @@
+{
+  "name": "helpdesk-helper",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Thunderbird add-on: insert predefined text snippets while composing, triggered by /tag.",
+  "type": "module",
+  "scripts": {
+    "lint": "eslint . && web-ext lint --source-dir src --self-hosted",
+    "test": "vitest run",
+    "build": "web-ext build --source-dir src --artifacts-dir dist --filename \"helpdesk-helper-{version}.xpi\" --overwrite-dest"
+  },
+  "devDependencies": {
+    "@eslint/js": "9.39.5",
+    "dompurify": "3.4.17",
+    "eslint": "9.39.5",
+    "globals": "17.14.0",
+    "jsdom": "31.0.1",
+    "vitest": "5.1.0",
+    "web-ext": "10.8.0"
+  }
+}
